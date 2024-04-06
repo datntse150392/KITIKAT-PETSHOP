@@ -8,13 +8,21 @@ import {
   Image,
   Dimensions,
   ScrollView,
+  FlatList,
 } from "react-native";
 import Carousel from "react-native-snap-carousel";
+/*
+@Import common component
+*/
+import Product from "../Common/Product";
 /*
 @Import library for icons
 */
 import { AntDesign } from "@expo/vector-icons";
-
+/*
+@import data
+*/
+import data from "../../assets/data/product.json";
 export default function HomeScreen() {
   // Render item for carousel
   const _renderItem = ({ item, index }: any) => {
@@ -116,7 +124,11 @@ export default function HomeScreen() {
 
           {/* Categories */}
           <View style={styles.categoriesContainer}>
-            <Text style={{ fontSize: 15, fontWeight: "bold" }}>DANH MỤC</Text>
+            <Text
+              style={{ fontSize: 15, fontWeight: "bold", marginBottom: 10 }}
+            >
+              DANH MỤC
+            </Text>
             {/* Category List 1*/}
             <View style={styles.categoriesList}>
               <View style={styles.category}>
@@ -178,6 +190,87 @@ export default function HomeScreen() {
               </View>
             </View>
           </View>
+
+          {/* Product suggestions */}
+          <View style={styles.productSuggestion}>
+            <View style={styles.textSuggestionContainer}>
+              <Text style={styles.textSuggestion}>Gợi ý cho bạn</Text>
+            </View>
+            {/* List Product */}
+            <View style={styles.listProductContainer}>
+              <FlatList
+                data={data}
+                renderItem={({ item }) => (
+                  <Product
+                    img={item.img}
+                    name={item.name}
+                    price={item.price}
+                    salesVolume={item.salesVolume}
+                  />
+                )}
+                keyExtractor={(item) => item.id}
+                numColumns={2} // Thiết lập mỗi hàng có 2 cột
+              />
+            </View>
+          </View>
+
+          {/* Best Sellers*/}
+          <View>
+            <Image
+              style={{ width: "100%", height: 150 }}
+              source={{
+                uri: "https://down-tx-vn.img.susercontent.com/vn-11134210-7r98o-lrvoyimnp12177.webp",
+              }}
+              resizeMode="contain"
+            ></Image>
+            <View
+              style={[styles.listProductContainer, { paddingHorizontal: 20 }]}
+            >
+              <FlatList
+                data={data}
+                renderItem={({ item }) => (
+                  <Product
+                    img={item.img}
+                    name={item.name}
+                    price={item.price}
+                    salesVolume={item.salesVolume}
+                  />
+                )}
+                keyExtractor={(item) => item.id}
+                numColumns={2} // Thiết lập mỗi hàng có 2 cột
+              />
+            </View>
+          </View>
+
+          {/* Pate Category */}
+          <View>
+            <Image
+              style={{ width: "100%", height: 150 }}
+              source={{
+                uri: "https://down-tx-vn.img.susercontent.com/vn-11134210-7r98o-lrvoyimnunbt7e.webp",
+              }}
+              resizeMode="contain"
+            ></Image>
+            <View
+              style={[styles.listProductContainer, { paddingHorizontal: 20 }]}
+            >
+              <FlatList
+                data={data}
+                renderItem={({ item }) =>
+                  item.category === "pate" ? (
+                    <Product
+                      img={item.img}
+                      name={item.name}
+                      price={item.price}
+                      salesVolume={item.salesVolume}
+                    />
+                  ) : null
+                }
+                keyExtractor={(item) => item.id}
+                numColumns={2} // Thiết lập mỗi hàng có 2 cột
+              />
+            </View>
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -199,7 +292,7 @@ const styles = StyleSheet.create({
     }),
   },
   infoContainer: {
-    paddingVertical: 15,
+    paddingVertical: 5,
     paddingHorizontal: 20,
     flexDirection: "row",
     alignItems: "center",
@@ -251,7 +344,7 @@ const styles = StyleSheet.create({
   categoriesList: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginVertical: 20,
+    marginVertical: 10,
   },
   category: {
     width: "33.33%",
@@ -261,5 +354,25 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginTop: 5,
     color: "rgba(0, 0, 0, 0.7)",
+  },
+  productSuggestion: {
+    paddingHorizontal: 20,
+    marginTop: 10,
+  },
+  textSuggestionContainer: {
+    alignItems: "center",
+    backgroundColor: "#f0f0f0",
+    padding: 10,
+    borderRadius: 10,
+    borderBottomWidth: 3,
+    borderBottomColor: "#012CA8",
+  },
+  textSuggestion: {
+    fontSize: 16,
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+  listProductContainer: {
+    marginVertical: 10,
   },
 });

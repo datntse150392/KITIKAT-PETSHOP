@@ -2,6 +2,10 @@
 
 This mobile application is designed to cater to pet owners, specifically cat lovers, offering a wide range of products including food, grooming tools, and accessories. The app aims to provide a seamless shopping experience across multiple platforms, utilizing React Native for frontend development and Golang for backend services. MongoDB is chosen as the database for its flexibility and scalability.
 
+###
+
+<img src="./assets/d450733c-0d16-4259-812e-b48134762c5e.jpg">
+
 ## Features
 
 - **User Authentication**: Secure login and registration for customers, shop owners, and administrators.
@@ -60,3 +64,4 @@ npm install
 
 # Run the application
 npm start
+```
