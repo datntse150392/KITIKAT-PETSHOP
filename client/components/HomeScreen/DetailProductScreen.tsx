@@ -13,6 +13,12 @@ import { useEffect } from "react";
 @import library icon
 */
 import { AntDesign } from "@expo/vector-icons";
+
+/*
+@import common component
+*/
+import FeedBack from "../Common/FeedBack";
+
 export default function DetailProductScreen({ navigation }: any) {
   useEffect(() => {
     navigation.getParent()?.setOptions({
@@ -41,13 +47,23 @@ export default function DetailProductScreen({ navigation }: any) {
       <ScrollView>
         <View style={styles.container}>
           {/* Image */}
-          <Image
-            style={{ width: "100%", height: 400, alignSelf: "center" }}
-            source={{
-              uri: "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lsoe1y3aemroda",
-            }}
-            resizeMode="cover"
-          ></Image>
+          <View style={styles.imageContainer}>
+            <Image
+              style={{ width: "100%", height: 400, alignSelf: "center" }}
+              source={{
+                uri: "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lsoe1y3aemroda",
+              }}
+              resizeMode="cover"
+            ></Image>
+            <View style={styles.groupBtnSetting}>
+              <Pressable
+                onPress={() => navigation.goBack()}
+                style={styles.backStepBtn}
+              >
+                <AntDesign name="arrowleft" size={24} color="#fff" />
+              </Pressable>
+            </View>
+          </View>
 
           {/* Price & Name */}
           <View style={styles.P_NContainer}>
@@ -97,7 +113,11 @@ export default function DetailProductScreen({ navigation }: any) {
               </View>
             </View>
             {/* Main*/}
-            <View></View>
+            <View>
+              <FeedBack />
+              <FeedBack />
+              <FeedBack />
+            </View>
           </View>
         </View>
       </ScrollView>
@@ -185,7 +205,7 @@ const styles = StyleSheet.create({
     gap: 5,
     borderBottomWidth: 1,
     paddingBottom: 10,
-    borderBottomColor: "#9e9e9e",
+    borderBottomColor: "rgba(0,0,0, 0.1)",
   },
   fbStar: {
     flexDirection: "row",
@@ -215,5 +235,18 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 8,
     backgroundColor: "#ee4d2d",
+  },
+  imageContainer: {
+    position: "relative",
+  },
+  groupBtnSetting: {
+    position: "absolute",
+    top: 20,
+    left: 20,
+  },
+  backStepBtn: {
+    padding: 5,
+    backgroundColor: "rgba(0,0,0,0.4)",
+    borderRadius: 100,
   },
 });

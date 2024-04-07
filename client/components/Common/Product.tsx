@@ -41,9 +41,7 @@ export default function Product({ img, name, price, salesVolume }: any) {
           }}
           resizeMode="contain"
         ></Image>
-        <Text s tyle={styles.textProduct}>
-          {truncateText(name, 50)}
-        </Text>
+        <Text style={styles.textProduct}>{truncateText(name, 50)}</Text>
 
         {/* Price & Sale Volume */}
         <View style={styles.P_SV_Container}>
