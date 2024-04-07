@@ -1,4 +1,5 @@
-import { View, Text, Image, StyleSheet } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { View, Text, Image, StyleSheet, Pressable } from "react-native";
 /**
  * Cắt chuỗi văn bản để chỉ hiển thị một phần của nó.
  * @param {string} text Đoạn văn bản đầy đủ cần được hiển thị một phần.
@@ -29,22 +30,27 @@ const formatCurrency = (value: number) => {
 };
 
 export default function Product({ img, name, price, salesVolume }: any) {
+  const navigation = useNavigation();
   return (
     <View style={styles.productContainer}>
-      <Image
-        style={{ width: 150, height: 150, alignSelf: "center" }}
-        source={{
-          uri: `${img}`,
-        }}
-        resizeMode="contain"
-      ></Image>
-      <Text style={styles.textProduct}>{truncateText(name, 50)}</Text>
+      <Pressable onPress={() => navigation.navigate("detailProduct")}>
+        <Image
+          style={{ width: 150, height: 150, alignSelf: "center" }}
+          source={{
+            uri: `${img}`,
+          }}
+          resizeMode="contain"
+        ></Image>
+        <Text s tyle={styles.textProduct}>
+          {truncateText(name, 50)}
+        </Text>
 
-      {/* Price & Sale Volume */}
-      <View style={styles.P_SV_Container}>
-        <Text style={styles.textPrice}>{formatCurrency(price)} </Text>
-        <Text style={styles.textSalesVolume}>Đã bán {salesVolume} </Text>
-      </View>
+        {/* Price & Sale Volume */}
+        <View style={styles.P_SV_Container}>
+          <Text style={styles.textPrice}>{formatCurrency(price)} </Text>
+          <Text style={styles.textSalesVolume}>Đã bán {salesVolume} </Text>
+        </View>
+      </Pressable>
     </View>
   );
 }
