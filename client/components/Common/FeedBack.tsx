@@ -5,6 +5,7 @@ import {
   Image,
   StyleSheet,
   FlatList,
+  Dimensions,
 } from "react-native";
 /*
 @import library icon
@@ -33,6 +34,8 @@ const dataImage = [
       "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lqykjcvbqavta4",
   },
 ];
+
+const width = Dimensions.get("window").width;
 
 export default function FeedBack({ img, name, price, salesVolume }: any) {
   return (
@@ -76,7 +79,7 @@ export default function FeedBack({ img, name, price, salesVolume }: any) {
               renderItem={(item) => (
                 <Image
                   style={{
-                    width: 150,
+                    width: width < 380 ? 130 : 150,
                     height: 150,
                     alignSelf: "flex-start",
                     marginBottom: 10,
