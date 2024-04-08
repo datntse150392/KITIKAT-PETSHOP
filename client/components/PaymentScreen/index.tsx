@@ -14,8 +14,10 @@ import { Feather } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 export default function PaymentScreen() {
+  const navigateion = useNavigation();
   /**
    *
    * @param {number} price
@@ -140,10 +142,13 @@ export default function PaymentScreen() {
             <Text>Phương thức thanh toán</Text>
           </View>
 
-          <View style={styles.paymentOptions}>
+          <Pressable
+            onPress={() => navigateion.navigate("paymentMethod")}
+            style={styles.paymentOptions}
+          >
             <Text>Thanh toán khi nhận hàng</Text>
             <AntDesign name="right" size={18} color="grey" />
-          </View>
+          </Pressable>
         </View>
 
         {/* Payment Detail */}

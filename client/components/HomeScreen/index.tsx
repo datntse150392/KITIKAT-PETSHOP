@@ -3,6 +3,7 @@ import Home from "./Home";
 import DetailProductScreen from "./DetailProductScreen";
 import { SafeAreaView, View } from "react-native";
 import PaymentScreen from "../PaymentScreen";
+import PaymentMethodScreen from "../PaymentMethodScreen";
 
 const Stack = createStackNavigator();
 
@@ -21,6 +22,15 @@ export default function HomeScreen() {
           component={PaymentScreen}
           options={{
             title: "Thanh toán",
+            headerShown: true,
+            headerLeftLabelVisible: false,
+          }}
+        />
+        <Stack.Screen
+          name="paymentMethod"
+          component={PaymentMethodScreen}
+          options={{
+            title: "Phương thức thanh toán",
             headerShown: true,
             headerLeftLabelVisible: false,
           }}
