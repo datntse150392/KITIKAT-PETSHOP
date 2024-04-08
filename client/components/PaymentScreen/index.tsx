@@ -6,6 +6,8 @@ import {
   ScrollView,
   Image,
   Pressable,
+  TouchableOpacity,
+  Dimensions,
 } from "react-native";
 /*
 @import library icon
@@ -37,7 +39,10 @@ export default function PaymentScreen() {
         <View style={styles.paymentContainer}>
           <View style={styles.addressContainer}>
             <Feather name="map-pin" size={20} color="#FF691C" />
-            <View style={styles.address}>
+            <TouchableOpacity
+              onPress={() => navigateion.navigate("selectAddress")}
+              style={styles.address}
+            >
               <Text style={styles.addressTitle}>Địa chỉ nhận hàng</Text>
               <View style={styles.addressBody}>
                 <Text style={styles.textNormal}>Nguyễn Văn A | 0918498961</Text>
@@ -46,7 +51,7 @@ export default function PaymentScreen() {
                   dsdsadas dsadsadas
                 </Text>
               </View>
-            </View>
+            </TouchableOpacity>
           </View>
         </View>
 
@@ -232,12 +237,13 @@ const styles = StyleSheet.create({
   paymentContainer: {
     flex: 1,
     backgroundColor: "#fff",
-  },
-  addressContainer: {
-    flexDirection: "row",
-    padding: 15,
     borderBottomWidth: 1,
     borderBottomColor: "#e0e0e0",
+  },
+  addressContainer: {
+    width: Dimensions.get("window").width - 40,
+    flexDirection: "row",
+    padding: 15,
     gap: 10,
   },
   address: {
