@@ -10,15 +10,18 @@ import {
   ScrollView,
   FlatList,
 } from "react-native";
+
 import Carousel from "react-native-snap-carousel";
 /*
 @Import common component
 */
 import Product from "../Common/Product";
+
 /*
 @Import library for icons
 */
 import { AntDesign } from "@expo/vector-icons";
+
 /*
 @import data
 */

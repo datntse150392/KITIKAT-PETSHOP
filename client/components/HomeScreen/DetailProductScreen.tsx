@@ -128,7 +128,10 @@ export default function DetailProductScreen({ navigation }: any) {
             Thêm vào giỏ hàng
           </Text>
         </Pressable>
-        <Pressable style={styles.quickPayment}>
+        <Pressable
+          onPress={() => navigation.navigate("payment")}
+          style={styles.quickPayment}
+        >
           <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff" }}>
             Mua ngay
           </Text>
