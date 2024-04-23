@@ -9,6 +9,7 @@ import {
   Dimensions,
   ScrollView,
   FlatList,
+  TouchableOpacity,
 } from "react-native";
 
 import Carousel from "react-native-snap-carousel";
@@ -26,7 +27,8 @@ import { AntDesign } from "@expo/vector-icons";
 @import data
 */
 import data from "../../assets/data/product.json";
-export default function Home() {
+
+export default function Home({ navigation }: any) {
   // Render item for carousel
   const _renderItem = ({ item }: any) => {
     return (
@@ -43,6 +45,11 @@ export default function Home() {
         />
       </View>
     );
+  };
+
+  // Func navigate
+  const navigateToCategory = () => {
+    navigation.navigate("categoryProduct");
   };
   return (
     <SafeAreaView style={styles.safeAreaView}>
@@ -134,7 +141,10 @@ export default function Home() {
             </Text>
             {/* Category List 1*/}
             <View style={styles.categoriesList}>
-              <View style={styles.category}>
+              <TouchableOpacity
+                onPress={navigateToCategory}
+                style={styles.category}
+              >
                 <Image
                   style={{ width: 80, height: 80 }}
                   source={{
@@ -142,7 +152,8 @@ export default function Home() {
                   }}
                 ></Image>
                 <Text style={styles.categoryText}>Cát vệ sinh</Text>
-              </View>
+              </TouchableOpacity>
+
               <View style={styles.category}>
                 <Image
                   style={{ width: 80, height: 80 }}

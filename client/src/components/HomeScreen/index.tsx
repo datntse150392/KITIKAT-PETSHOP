@@ -1,11 +1,18 @@
 import { createStackNavigator } from "@react-navigation/stack";
+import { SafeAreaView } from "react-native";
+
+/*
+@import components*/
 import Home from "./Home";
 import DetailProductScreen from "./DetailProductScreen";
-import { SafeAreaView, View } from "react-native";
 import PaymentScreen from "../PaymentScreen";
 import PaymentMethodScreen from "../PaymentMethodScreen";
-import MapScreen from "../SelectAddressScreen";
 import SelectAddress from "../SelectAddressScreen";
+import CategoryProductScreen from "../CategoryProductScreen";
+
+/*
+@import library icon
+*/
 
 const Stack = createStackNavigator();
 
@@ -42,6 +49,15 @@ export default function HomeScreen() {
           component={SelectAddress}
           options={{
             title: "Chọn địa chỉ nhận hàng",
+            headerShown: true,
+            headerLeftLabelVisible: false,
+          }}
+        />
+        <Stack.Screen
+          name="categoryProduct"
+          component={CategoryProductScreen}
+          options={{
+            title: "Cát vệ sinh cho mèo",
             headerShown: true,
             headerLeftLabelVisible: false,
           }}
