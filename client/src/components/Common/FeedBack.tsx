@@ -93,6 +93,7 @@ export default function FeedBack({ img, name, price, salesVolume }: any) {
               )}
               style={styles.listImg}
               numColumns={2}
+              scrollEnabled={false}
             />
           </View>
         </View>
