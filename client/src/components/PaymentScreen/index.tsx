@@ -5,7 +5,6 @@ import {
   StyleSheet,
   ScrollView,
   Image,
-  Pressable,
   TouchableOpacity,
   Dimensions,
 } from "react-native";
@@ -194,13 +193,13 @@ export default function PaymentScreen() {
               <Text>Phương thức thanh toán</Text>
             </View>
 
-            <Pressable
+            <TouchableOpacity
               onPress={() => navigateion.navigate("paymentMethod")}
               style={styles.paymentOptions}
             >
               <Text>Thanh toán khi nhận hàng</Text>
               <AntDesign name="right" size={18} color="grey" />
-            </Pressable>
+            </TouchableOpacity>
           </View>
 
           {/* Payment Detail */}
@@ -261,7 +260,7 @@ export default function PaymentScreen() {
         </View>
       </ScrollView>
       {/* Button */}
-      <Pressable>
+      <TouchableOpacity>
         <View style={styles.groupButton}>
           <Text
             style={{
@@ -277,7 +276,7 @@ export default function PaymentScreen() {
             Đặt hàng
           </Text>
         </View>
-      </Pressable>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 }

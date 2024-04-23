@@ -10,6 +10,7 @@ import HomeScreen from "../components/HomeScreen";
 @Import library for icons
 */
 import { AntDesign } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 const TabAbout = () => {
   return (
     <Tab.Navigator
@@ -23,7 +24,7 @@ const TabAbout = () => {
         component={HomeScreen}
         options={{
           tabBarIcon: ({ color }) => (
-            <AntDesign name="home" size={30} color={color} />
+            <AntDesign name="home" size={24} color={color} />
           ),
           tabBarLabel: "Trang chủ",
         }}
@@ -33,9 +34,19 @@ const TabAbout = () => {
         component={MailBox}
         options={{
           tabBarIcon: ({ color }) => (
-            <AntDesign name="mail" size={30} color={color} />
+            <AntDesign name="mail" size={24} color={color} />
           ),
           tabBarLabel: "Hôp thư",
+        }}
+      />
+      <Tab.Screen
+        name="mailboxs"
+        component={MailBox}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="account" size={24} color="black" />
+          ),
+          tabBarLabel: "Tài khoản",
         }}
       />
     </Tab.Navigator>

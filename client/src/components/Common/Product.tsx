@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
-import { View, Text, Image, StyleSheet, Pressable } from "react-native";
+import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 /**
  * Cắt chuỗi văn bản để chỉ hiển thị một phần của nó.
  * @param {string} text Đoạn văn bản đầy đủ cần được hiển thị một phần.
@@ -33,7 +33,7 @@ export default function Product({ img, name, price, salesVolume }: any) {
   const navigation = useNavigation();
   return (
     <View style={styles.productContainer}>
-      <Pressable onPress={() => navigation.navigate("detailProduct")}>
+      <TouchableOpacity onPress={() => navigation.navigate("detailProduct")}>
         <Image
           style={{ width: 150, height: 150, alignSelf: "center" }}
           source={{
@@ -48,7 +48,7 @@ export default function Product({ img, name, price, salesVolume }: any) {
           <Text style={styles.textPrice}>{formatCurrency(price)} </Text>
           <Text style={styles.textSalesVolume}>Đã bán {salesVolume} </Text>
         </View>
-      </Pressable>
+      </TouchableOpacity>
     </View>
   );
 }
