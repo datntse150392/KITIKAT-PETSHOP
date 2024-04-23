@@ -7,7 +7,7 @@ import { StyleSheet, SafeAreaView } from "react-native";
 const Stack = createStackNavigator();
 const RootStack = createStackNavigator();
 
-export default Router = ({ isLogged }) => {
+export default function Router({ isLogged }: any) {
   return (
     <NavigationContainer>
       <SafeAreaView style={styles.safeAreaView}>
@@ -37,7 +37,7 @@ export default Router = ({ isLogged }) => {
       </SafeAreaView>
     </NavigationContainer>
   );
-};
+}
 
 const styles = StyleSheet.create({
   safeAreaView: {
