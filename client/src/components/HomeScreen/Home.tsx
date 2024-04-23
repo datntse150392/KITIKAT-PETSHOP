@@ -213,6 +213,7 @@ export default function Home() {
                 )}
                 keyExtractor={(item) => item.id}
                 numColumns={2} // Thiết lập mỗi hàng có 2 cột
+                scrollEnabled={false} // Tắt tính năng scroll
               />
             </View>
           </View>
@@ -241,6 +242,7 @@ export default function Home() {
                 )}
                 keyExtractor={(item) => item.id}
                 numColumns={2} // Thiết lập mỗi hàng có 2 cột
+                scrollEnabled={false} // Tắt tính năng scroll
               />
             </View>
           </View>
@@ -271,6 +273,7 @@ export default function Home() {
                 }
                 keyExtractor={(item) => item.id}
                 numColumns={2} // Thiết lập mỗi hàng có 2 cột
+                scrollEnabled={false} // Tắt tính năng scroll
               />
             </View>
           </View>
