@@ -28,7 +28,7 @@ import { AntDesign } from "@expo/vector-icons";
 import data from "../../assets/data/product.json";
 export default function Home() {
   // Render item for carousel
-  const _renderItem = ({ item, index }: any) => {
+  const _renderItem = ({ item }: any) => {
     return (
       <View
         style={{
